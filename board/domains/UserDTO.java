@@ -1,16 +1,16 @@
 package board.domains;
 
 public class UserDTO {
-    private int id;
-    private String username;
-    private String password;
-    private String nickname;
+    private int userId;
+    protected String username;
+    protected String password;
+    protected String nickname;
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int id) {
+        this.userId = id;
     }
     public String getUsername() {
         return username;
@@ -34,7 +34,7 @@ public class UserDTO {
     public boolean equals(Object o) {
         if (o instanceof UserDTO) {
             UserDTO u = (UserDTO) o;
-            if (id == u.id)
+            if (userId == u.userId)
                 return true;
         }
         return false;

@@ -1,8 +1,8 @@
-package board.domains;
+package array;
 
 //게시판관리등에서
 //로그인하는 회원을 담당하는 Member클래스
-public class MemberDTO {
+public class Member {
     private int id;
     private String userName;
     private String password;
@@ -41,8 +41,8 @@ public class MemberDTO {
     }
 
     public boolean equals(Object o) {
-        if (o instanceof MemberDTO) {
-            MemberDTO m = (MemberDTO) o;
+        if (o instanceof Member) {
+            Member m = (Member) o;
             if (userName.equals(m.userName) && password.equals(m.password))
                 return true;
         }
@@ -57,13 +57,13 @@ public class MemberDTO {
                 ", nickName: "+nickName;
     }
 
-    public MemberDTO() {
+    public Member() {
         userName = new String();
         password = new String();
         nickName = new String();
     }
 
-    public MemberDTO(int id, String userName, String password, String nickName) {
+    public Member(int id, String userName, String password, String nickName) {
         this.id = id;
         this.userName = userName;
         this.password = password;

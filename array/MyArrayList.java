@@ -1,7 +1,6 @@
 package array;
 
 import java.util.ArrayList;
-import board.domains.MemberDTO;
 
 //ArrayList
 //어레이리스트란 동적할당 개념이 적용된 배열을
@@ -23,16 +22,16 @@ public class MyArrayList {
         //이러한 wrapper클래스를 어레이리스트의 모음으로 지정
         
         //1.어레이리스트 선언
-        ArrayList<MemberDTO> memberList = new ArrayList<>();
+        ArrayList<Member> memberList = new ArrayList<>();
         
-        MemberDTO m1 = new MemberDTO(1,"userName1","password1","nickName1");
-        MemberDTO m2 = new MemberDTO(2,"userName2","password2","nickName2");
-        MemberDTO m3 = new MemberDTO(3,"userName3","password2","nickName3");
-        MemberDTO m4 = new MemberDTO(4,"userName4","password3","nickName4");
-        MemberDTO m5 = new MemberDTO(5,"userName5","password4","nickName5");
-        MemberDTO m6 = new MemberDTO(6,"userName6","password5","nickName6");
-        MemberDTO m7 = new MemberDTO(7,"userName7","password6","nickName7");
-        MemberDTO m8 = new MemberDTO(8,"userName8","password7","nickName8");
+        Member m1 = new Member(1,"userName1","password1","nickName1");
+        Member m2 = new Member(2,"userName2","password2","nickName2");
+        Member m3 = new Member(3,"userName3","password2","nickName3");
+        Member m4 = new Member(4,"userName4","password3","nickName4");
+        Member m5 = new Member(5,"userName5","password4","nickName5");
+        Member m6 = new Member(6,"userName6","password5","nickName6");
+        Member m7 = new Member(7,"userName7","password6","nickName7");
+        Member m8 = new Member(8,"userName8","password7","nickName8");
         
         //2.어레이리스트 메소드 보기
         //  A.해당 리스트가 몇개의 요소가 있는지 확인할 때에는 size()
@@ -86,7 +85,7 @@ public class MyArrayList {
         // 요소의 클래스에 equals()메소드가 정확하게 구현되있어야
         // 정상적으로 실행되는 메소드
         
-        MemberDTO m77 = new MemberDTO(7,"userName7","password6","nickName7");
+        Member m77 = new Member(7,"userName7","password6","nickName7");
         
         //1. 해당 리스트에 특정 개체가 존재하는 알고 싶다면 contains()
         //   동일한 객체가 아니더라도 equals()가 true가 나오는 객체가

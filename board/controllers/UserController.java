@@ -1,58 +1,47 @@
 package board.controllers;
 
-import java.util.ArrayList;
+import board.domains.StudentDTO;
+import board.domains.TeacherDTO;
 import board.domains.UserDTO;
+import board.impls.UserServiceImpl;
+import board.services.UserService;
 
 public class UserController {
-    private ArrayList<UserDTO> list;
-    private int id = 4;
-
-    public UserController() {
-        list = new ArrayList<>();
-        for (int i = 1; i <= 3; i++) {
-            UserDTO u = new UserDTO();
-            u.setId(i);
-            u.setUsername("user" + i);
-            u.setPassword("1");
-            u.setNickname("사용자" + i);
-            list.add(u);
-        }
+    UserService service;
+    public UserController(){
+        service = new UserServiceImpl();
     }
-
-    public UserDTO logIn(UserDTO logIn) {
-        for (UserDTO u : list) {
-            if (logIn.getUsername().equals(u.getUsername()) && logIn.getPassword().equals(u.getPassword())) {
-                return u;
-            }
-        }
-        return null;
+    public void postStudent(StudentDTO student){
+        service.addStudent(student);
     }
-
-    // username 중복체크
-    public boolean validateUsername(String username) {
-        for (UserDTO u : list) {
-            if (username.equals(u.getUsername())) {
-                return true;
-            }
-        }
-        return false;
+    public void postTeacher(TeacherDTO teacher){
+        service.addTeacher(teacher);
     }
-
-    // 회원가입
-    public void register(UserDTO u) {
-        u.setId(id++);
-        list.add(u);
+    public void putUser(UserDTO user){
+        service.updateUser(user);
     }
-
-    // 닉네임 리턴
-    public String selectNickname(int id) {
-        UserDTO u = new UserDTO();
-        u.setId(id);
-
-        int index = list.indexOf(u);
-        if (index != -1) {
-            return list.get(index).getNickname();
-        }
-        return "손님";
+    public void deleteUser(UserDTO user){
+        service.deleteUser(user);
+    }
+    public StudentDTO putLogin(StudentDTO student){
+        return service.login(student);
+    }
+    public TeacherDTO putAccess(TeacherDTO teacher){
+        return service.access(teacher);
+    }
+    public StudentDTO[] getStudentlist(){
+        return service.fetchStudentlist();
+    }
+    public StudentDTO getStudentDetail(String username){
+        return service.fetchStudentDetail(username);
+    }
+    public int getSum(StudentDTO student){
+        return service.sum(student);
+    }
+    public float getAvg(int sum){
+        return service.avg(sum);
+    }
+    public boolean getExistId(String username){
+        return service.existId(username);
     }
 }
